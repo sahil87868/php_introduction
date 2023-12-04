@@ -1,0 +1,24 @@
+Q=1 How to pass Multiple Variable in route?
+A=1 
+Route::get('/user/{id}/{name}', 'UserController@show');
+In this case, both id and name are variables that will be passed to the show method in the UserController.
+
+
+Q=2 How to pass variable which can be null in Route?
+A=2 Route::get('/user/{id?}', 'UserController@show')->where('id', '[0-9]+')->default('id', null);
+In this example, the id parameter is optional, and if it's not provided, it will default to null.
+
+Q=3  Create custom auto using middleware.
+A=3 php artisan make:middleware CustomMiddleware
+
+Q=4  Generate Resource Controller for employee.
+A=4 php artisan make:controller EmployeeController --resource
+
+Q=5  In Employee Controller’s action Call Middleware.
+A=5 public function __construct()
+{
+    $this->middleware('custom');
+}
+
+Q=6  How to remove route caching? 
+A=6 php artisan route:clear
